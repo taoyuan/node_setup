@@ -289,10 +289,10 @@ fi
 print_status "Confirming \"${DISTRO}\" is supported..."
 
 if [ -x /usr/bin/curl ]; then
-    exec_cmd_nobail "curl -sLf -o /dev/null 'https://mirrors.tuna.tsinghua.edu.cn/nodesource/${NODEREPO}/dists/${DISTRO}/Release'"
+    exec_cmd_nobail "curl -sLf -o /dev/null 'https://mirrors.gzqdn.org/nodesource/${NODEREPO}/dists/${DISTRO}/Release'"
     RC=$?
 else
-    exec_cmd_nobail "wget -qO /dev/null -o /dev/null 'https://mirrors.tuna.tsinghua.edu.cn/nodesource/${NODEREPO}/dists/${DISTRO}/Release'"
+    exec_cmd_nobail "wget -qO /dev/null -o /dev/null 'https://mirrors.gzqdn.org/nodesource/${NODEREPO}/dists/${DISTRO}/Release'"
     RC=$?
 fi
 
@@ -318,8 +318,8 @@ fi
 
 print_status "Creating apt sources list file for the NodeSource ${NODENAME} repo..."
 
-exec_cmd "echo 'deb https://mirrors.tuna.tsinghua.edu.cn/nodesource/${NODEREPO} ${DISTRO} main' > /etc/apt/sources.list.d/nodesource.list"
-exec_cmd "echo 'deb-src https://mirrors.tuna.tsinghua.edu.cn/nodesource/${NODEREPO} ${DISTRO} main' >> /etc/apt/sources.list.d/nodesource.list"
+exec_cmd "echo 'deb https://mirrors.gzqdn.org/nodesource/${NODEREPO} ${DISTRO} main' > /etc/apt/sources.list.d/nodesource.list"
+exec_cmd "echo 'deb-src https://mirrors.gzqdn.org/nodesource/${NODEREPO} ${DISTRO} main' >> /etc/apt/sources.list.d/nodesource.list"
 
 print_status 'Running `apt-get update` for you...'
 
